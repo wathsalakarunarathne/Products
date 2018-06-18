@@ -3,13 +3,26 @@
 <form #frm = "ngForm" (ngSubmit)="addItem(frm)" *ngIf="!toggleForm" >
   <h2>Add items</h2>
   <div class="form-group">
-    <label for="">Item number: </label>
+    <label for="">Product number: </label>
     <input type ="number" class="form-control" name="item_no"  value="" ngModel required>
   </div>
   <div class="form-group">
-    <label for="">Item Name: </label>
+    <label for=""> Name: </label>
     <input type ="text" class="form-control" name="item_name" value="" ngModel required>
   </div>
+  <div class="form-group">
+      <label for="size">Size:</label> 
+      <select id="size" name="size"  class="form-control" value="" ngModel required>
+        <option value="xxs" >xxs</option>  
+        <option value="xs" >xs</option> 
+        <option value="s" >s</option> 
+        <option value="m" >m</option> 
+        <option value="l" >l</option> 
+        <option value="xl" >xl</option>
+        <option value="xxl" >xxl</option>
+      </select>
+    </div>
+
   <div class="form-group">
     <label for=""> Price: </label>
     <input type ="number" class="form-control" name="item_price" value="" ngModel required>
@@ -18,6 +31,7 @@
     <label for="">Quantity: </label>
     <input type ="number" class="form-control" name="item_quantity" value="" ngModel required>
   </div>
+ 
   <button type="submit" name="button" class="btn btn-success" [disabled] = frm.invalid >Add item</button>
   <button type="button" class="btn btn-success"  style="background-color:rgb(130, 146, 236); border:rgb(130, 146, 236) "  onClick="this.form.reset()" >Reset</button>
 
@@ -31,13 +45,25 @@
 <form #editForm = "ngForm" (ngSubmit)="editItem(editForm)" *ngIf="toggleForm">
   <h2>Edit items</h2>
   <div class="form-group">
-    <label for="">Item number: </label>
+    <label for="">Product number: </label>
     <input type ="number" class="form-control" name="item_no"  value="" [ngModel] ="selectedItem.item_no">
   </div>
   <div class="form-group">
-    <label for="">Item Name: </label>
+    <label for="">Name: </label>
     <input type ="text" class="form-control" name="item_name" value="" [ngModel] ="selectedItem.item_name">
   </div>
+  <div class="form-group">
+        <label for="size">Size:</label> 
+        <select id="size" name="size" value="" [ngModel]="selectedItem.size" class="form-control">
+          <option value="xxs" >xxs</option>  
+          <option value="xs" >xs</option> 
+          <option value="s" >s</option> 
+          <option value="m" >m</option> 
+          <option value="l" >l</option>
+          <option value="xl" >xl</option>
+          <option value="xxl" >xxl</option> 
+        </select>
+      </div>
   <div class="form-group">
     <label for=""> Price: </label>
     <input type ="number" class="form-control" name="item_price" value="" [ngModel] ="selectedItem.item_price">
@@ -53,19 +79,19 @@
 <h2>Items List</h2>
 <div class="row">
   <div *ngFor =" let item of shoppingItemList" class="" >
-    <!-- <div class="col-md-2">
-      <input type="Checkbox" name="">
-    </div> -->
     <div class="col-md-2">
       {{item.item_no}}
     </div>
     <div class="col-md-2">
       {{item.item_name}}
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
+      {{item.size}}
+    </div>
+    <div class="col-md-2">
       {{item.item_price}}
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       {{item.item_quantity}}
     </div>
     <div class="col-md-1">

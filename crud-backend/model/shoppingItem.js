@@ -9,6 +9,10 @@ const shoppingItemSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    size: {
+        type: String,
+        required: true
+    },
     item_price: {
         type: Number,
         required: true

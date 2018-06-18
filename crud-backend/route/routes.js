@@ -20,6 +20,7 @@ router.post('/item', (req, res, next) => {
     let newShoppingItem = new Item({
 	    item_no: req.body.item_no,
         item_name: req.body.item_name,
+        size:req.body.size,
         item_price: req.body.item_price,
         item_quantity: req.body.item_quantity
     });
@@ -40,6 +41,7 @@ router.put('/item/:id', (req, res, next) =>{
         $set:{
             item_no: req.body.item_no,
             item_name: req.body.item_name,
+            size:req.body.size,
             item_price: req.body.item_price,
             item_quantity: req.body.item_quantity
             }

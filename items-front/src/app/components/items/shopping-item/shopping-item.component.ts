@@ -12,7 +12,6 @@ export class ShoppingItemComponent implements OnInit {
   shoppingItemList: Item[]=[];
   selectedItem: Item;
   toggleForm: boolean = false;
-  
   constructor(private dataService: DataService) { 
 
   }
@@ -29,6 +28,7 @@ export class ShoppingItemComponent implements OnInit {
     let newItem: Item = {
       item_no: form.value.item_no,
       item_name: form.value.item_name,
+      size: form.value.size,
       item_price: form.value.item_price,
       item_quantity: form.value.item_quantity
     }
@@ -40,6 +40,8 @@ export class ShoppingItemComponent implements OnInit {
 
     }
   
+
+
   deleteItem(id){
     this.dataService.deleteShoppingItem(id)
     .subscribe(data =>{
@@ -60,6 +62,7 @@ export class ShoppingItemComponent implements OnInit {
       _id: this.selectedItem._id,
       item_no: form.value.item_no,
       item_name: form.value.item_name,
+      size: form.value.size,
       item_price: form.value.item_price,
       item_quantity: form.value.item_quantity
     }
@@ -77,6 +80,7 @@ export class ShoppingItemComponent implements OnInit {
 
   }
 
+  
 
   ngOnInit() {
     this.getItems()
