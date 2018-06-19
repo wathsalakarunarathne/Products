@@ -31,6 +31,8 @@ export class ShoppingItemComponent implements OnInit {
       size: form.value.size,
       item_price: form.value.item_price,
       item_quantity: form.value.item_quantity
+      // description: form.value.description
+      // addFields: form.value.addFields
     }
     this.dataService.addShoppingItem(newItem)
     .subscribe(item =>{
@@ -65,6 +67,8 @@ export class ShoppingItemComponent implements OnInit {
       size: form.value.size,
       item_price: form.value.item_price,
       item_quantity: form.value.item_quantity
+      // description: form.value.description
+      // addFields: form.value.addFields
     }
     this.dataService.updateShoppingItem(newItem)
       .subscribe( result =>{

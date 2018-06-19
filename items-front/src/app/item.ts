@@ -5,4 +5,6 @@ export class Item{
     size: string;
     item_price: number;
     item_quantity: number;
+    // description: string;
+    // addFields: string;
 } 

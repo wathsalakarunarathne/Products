@@ -20,8 +20,16 @@ const shoppingItemSchema = mongoose.Schema({
 	 item_quantity: {
         type: Number,
         required: true
-    }
-
+     }
+    // },
+    // description: {
+    //     type: String,
+    //     required: true
+    // }
+    // tagdetails: {
+    //     type: String,
+    //     required: true
+    // }
 });
 
 const Item = module.exports = mongoose.model('Item', shoppingItemSchema);
