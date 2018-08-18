@@ -43,7 +43,6 @@ export class ShoppingItemComponent implements OnInit {
     }
   
 
-
   deleteItem(id){
     this.dataService.deleteShoppingItem(id)
     .subscribe(data =>{

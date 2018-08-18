@@ -73,8 +73,64 @@
 
 
 
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">Edit Items</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #editForm = "ngForm" (ngSubmit)="editItem(editForm)" *ngIf="toggleForm" id="editForm" >
+          <!-- <h2>Edit items</h2> -->
+          <div class="form-group">
+            <label for="">Product number: </label>
+            <input type ="number" class="form-control" name="item_no"  value="" [ngModel] ="selectedItem.item_no">
+          </div>
+          <div class="form-group">
+            <label for="">Name: </label>
+            <input type ="text" class="form-control" name="item_name" value="" [ngModel] ="selectedItem.item_name">
+          </div>
+          <div class="form-group">
+                <label for="size">Size:</label> 
+                <select id="size" name="size" value="" [ngModel]="selectedItem.size" class="form-control">
+                  <option value="xxs" >xxs</option>  
+                  <option value="xs" >xs</option> 
+                  <option value="s" >s</option> 
+                  <option value="m" >m</option> 
+                  <option value="l" >l</option>
+                  <option value="xl" >xl</option>
+                  <option value="xxl" >xxl</option> 
+                </select>
+              </div>
+          <div class="form-group">
+            <label for=""> Price: </label>
+            <input type ="number" class="form-control" name="item_price" value="" [ngModel] ="selectedItem.item_price">
+          </div>
+          <div class="form-group">
+            <label for="">Quantity: </label>
+            <input type ="number" class="form-control" name="item_quantity" value="" [ngModel] ="selectedItem.item_quantity">
+          </div>
+          <button type="submit" name="button" class="btn btn-success"  >Save</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="this.form.reset()">Close</button>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button> -->
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!--edit form-->
-<form #editForm = "ngForm" (ngSubmit)="editItem(editForm)" *ngIf="toggleForm">
+<!-- <form #editForm = "ngForm" (ngSubmit)="editItem(editForm)" *ngIf="toggleForm">
   <h2>Edit items</h2>
   <div class="form-group">
     <label for="">Product number: </label>
@@ -103,14 +159,14 @@
   <div class="form-group">
     <label for="">Quantity: </label>
     <input type ="number" class="form-control" name="item_quantity" value="" [ngModel] ="selectedItem.item_quantity">
-  </div>
+  </div> -->
   <!-- <div class="form-group">
     <label for="">Description: </label>
     <textarea rows="1" cols="140" name="description" value="" [ngModel] ="selectedItem.description"></textarea> -->
     <!-- <input type ="number" class="form-control" name="item_quantity" value="" ngModel required> -->
   <!-- </div> -->
-  <button type="submit" name="button" class="btn btn-success" >Save</button>
-</form>
+  <!-- <button type="submit" name="button" class="btn btn-success" >Save</button>
+</form> -->
 
 
 <h2>Items List</h2>
@@ -138,8 +194,10 @@
         {{item.addFields}}
       </div> -->
     <div class="col-md-1">
-      <button type="button" name="button" class="btn btn-primary" (click)="showEditForm(item)>Edit" [disabled]="toggleForm">Edit</button>
+      <button type="button" name="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="showEditForm(item)>Edit" >Edit</button>
     </div>
+
+  
     <div class="col-md-1">
       <button type="button" name="button" class="btn btn-danger" (click)="deleteItem(item._id)">Delete</button>
       <br><br>

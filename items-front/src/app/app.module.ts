@@ -14,6 +14,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { ViewitemComponent } from './components/items/viewitem/viewitem.component';
 
 const appRoutes: Routes = [
+   { path: '', component: SigninComponent},
    { path: 'signin', component: SigninComponent },
    { path: 'items/shopping-item', component: ShoppingItemComponent },
    { path: 'appheader', component: AppheaderComponent },
